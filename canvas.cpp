@@ -126,6 +126,8 @@ void Canvas::clear(){
     mainPolygonInnerRingsEdges.clear();
     tailorPolygonOuterRingEdges.clear();
     tailorPolygonInnerRingsEdges.clear();
+
+    clippedResult.clear();
 }
 
 bool Canvas::finishAMainPolygonInnerRing(){
@@ -188,4 +190,9 @@ bool Canvas::finishTailorPolygonOuterRing(){
     }
     tailorPolygonOuterRingEdges.push_back(QPair<QPoint, QPoint>(tailorPolygonOuterRingPoints[size-1], tailorPolygonOuterRingPoints[0]));
     return true;
+}
+
+bool Canvas::computeIntersectedPolygons(){
+    WeilerAtherton algorithm(mainPolygonOuterRingPoints, mainPolygonInnerRingsPoints, tailorPolygonOuterRingPoints, tailorPolygonInnerRingsPoints);
+    algorithm.solve(clippedResult);
 }

@@ -27,11 +27,13 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    canvas.cpp
+    canvas.cpp \
+    weileratherton.cpp
 
 HEADERS += \
         mainwindow.h \
-    canvas.h
+    canvas.h \
+    weileratherton.h
 
 FORMS += \
         mainwindow.ui \

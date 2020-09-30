@@ -136,8 +136,14 @@ void MainWindow::on_clearBtn_clicked(){
 }
 
 void MainWindow::on_startBtn_clicked(){
+    if(state!=State::paintingTailorPolygonInnerRingFinished
+            && state!=State::paintingTailorPolygonOuterRingFinished){ // notice that we can skip painting TailorPolygonInnerRings
+        // ignore
+        return;
+    }
     setAllBtnStyleSheet();
-    state = State::notPainting;
+    state = State::paintingFinished;
+    ui->widget->computeIntersectedPolygons();
     ui->widget->update();
 }
 

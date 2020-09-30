@@ -20,7 +20,8 @@ enum State{
     paintingTailorPolygonOuterRing,
     paintingTailorPolygonOuterRingFinished, // but do not begin painting TailorPolygonInnerRing
     paintingTailorPolygonInnerRing,
-    paintingTailorPolygonInnerRingFinished
+    paintingTailorPolygonInnerRingFinished,
+    paintingFinished
 };
 
 class MainWindow : public QMainWindow

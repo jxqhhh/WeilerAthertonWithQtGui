@@ -6,6 +6,7 @@
 #include <iostream>
 #include <QPainter>
 #include "mainwindow.h"
+#include "weileratherton.h"
 using std::cout;
 
 namespace Ui {
@@ -38,6 +39,8 @@ private:
     QVector<QVector<QPoint>> tailorPolygonInnerRingsPoints;
     QVector<QVector<QPair<QPoint, QPoint>>> tailorPolygonInnerRingsEdges; // for painting only
 
+    QVector<QVector<QPoint>> clippedResult;
+
     void setMainWindow(MainWindow* m);
     MainWindow* mainwindow;
     QPainter* painterForMainPolygon;
@@ -52,6 +55,7 @@ private:
     bool finishTailorPolygonOuterRing();
     bool newMainPolygonInnerRing = false;
     bool newTailorPolygonInnerRing = false;
+    bool computeIntersectedPolygons();
 };
 
 #endif // CANVAS_H
