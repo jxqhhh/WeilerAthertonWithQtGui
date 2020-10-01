@@ -39,7 +39,7 @@ private:
     QVector<QVector<QPoint>> tailorPolygonInnerRingsPoints;
     QVector<QVector<QPair<QPoint, QPoint>>> tailorPolygonInnerRingsEdges; // for painting only
 
-    QVector<QVector<QPoint>> clippedResult;
+    QVector<QVector<QPoint>> clippingResult;
 
     void setMainWindow(MainWindow* m);
     MainWindow* mainwindow;
@@ -47,7 +47,7 @@ private:
     QPainter* painterForTailorPolygon;
     const static int outerRingPtsWdith = 5;
     const static int innerRingPtsWdith = 3;
-    const static QColor mainPolygonPtsColor, tailorPolygonPtsColor;
+    const static QColor mainPolygonPtsColor, tailorPolygonPtsColor, clippingResultPtsColor;
     void clear();
     bool finishAMainPolygonInnerRing();
     bool finishATailorPolygonInnerRing();

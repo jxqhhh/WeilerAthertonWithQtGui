@@ -15,7 +15,8 @@ Canvas::~Canvas()
 }
 
 const QColor Canvas::mainPolygonPtsColor = Qt::blue;
-const QColor Canvas::tailorPolygonPtsColor = Qt::red;
+const QColor Canvas::tailorPolygonPtsColor = Qt::green;
+const QColor Canvas::clippingResultPtsColor = Qt::red;
 
 void Canvas::mouseReleaseEvent(QMouseEvent* e){
     State s = mainwindow->getState();
@@ -114,6 +115,17 @@ void Canvas::paintEvent(QPaintEvent* e){
             painter.drawLine(pts.first, pts.second);
         }
     }
+
+    // paint clipping result:
+    pen.setWidth(outerRingPtsWdith);
+    pen.setColor(clippingResultPtsColor);
+    painter.setPen(pen);
+    for(auto& ring: clippingResult){
+        for(int i = 0; i < ring.size(); i ++){
+            painter.drawLine(ring[i], ring[(i+1)%ring.size()]);
+        }
+    }
+
 }
 
 void Canvas::clear(){
@@ -127,7 +139,7 @@ void Canvas::clear(){
     tailorPolygonOuterRingEdges.clear();
     tailorPolygonInnerRingsEdges.clear();
 
-    clippedResult.clear();
+    clippingResult.clear();
 }
 
 bool Canvas::finishAMainPolygonInnerRing(){
@@ -194,5 +206,5 @@ bool Canvas::finishTailorPolygonOuterRing(){
 
 bool Canvas::computeIntersectedPolygons(){
     WeilerAtherton algorithm(mainPolygonOuterRingPoints, mainPolygonInnerRingsPoints, tailorPolygonOuterRingPoints, tailorPolygonInnerRingsPoints);
-    algorithm.solve(clippedResult);
+    algorithm.solve(clippingResult);
 }
