@@ -9,11 +9,15 @@ enum PointType{
     intersectionPoint
 };
 
+struct Index{
+    int indexOfRing; // 外环索引为0，内环的索引从1开始
+    int indexOfEdge;
+};
+
 struct GeneralPoint{
     PointType pointFlag;
-    int index0; // 表示点在主多边形的第几条边上
-    int index1; // 表示点在裁剪多边形的第几个环上（外环为0号环，内环的编号从1开始）
-    int index2; // 表示点在裁剪多边形的第index1环上的第几个边上
+    Index mainIndex; // 表示点在主多边形的第几个环的第几条边上
+    Index tailorIndex; // 表示点在裁剪多边形的第几个环的第几条边上
     QPoint pos;
     bool inFlag;
 };
@@ -30,12 +34,14 @@ public:
                    const QVector<QPoint>& _tailorPolygonOuterRingPoints,
                    const QVector<QVector<QPoint>>& _tailorPolygonInnerRingsPoints);
     void solve(QVector<QVector<QPoint>>& result);
-    static bool segmentsIntersect(QPoint p1, QPoint p2, QPoint p3, QPoint p4);
-    static QPoint getintersectPoint(QPoint p1, QPoint p2, QPoint p3, QPoint p4);
+    static bool segmentsIntersect(const QPoint& p1, const QPoint& p2, const QPoint& p3, const QPoint& p4);
+    static QPoint getintersectPoint(const QPoint& p1, const QPoint& p2, const QPoint& p3, const QPoint& p4);
+    static int getDistance(const QPoint& p1, const QPoint& p2);
 private:
-    void firstStep(const QVector<QPoint>& pts, QVector<QVector<QPoint>>& output);
-    void generateIntersectPoints(const QVector<QPoint>& pts,QVector<GeneralPoint>& output);
-    void secondStep(const QVector<QVector<QPoint>>& polygons, const QVector<QPoint>& clippingPolygon, QVector<QVector<QPoint>>& output);
+    void generateIntersectPoints(QVector<GeneralPoint>& intersectPtsVector);
+    void generateList(const QVector<GeneralPoint>& intersectPtsVector,
+                      QVector<QVector<GeneralPoint>>& comList,
+                      bool processingMainPolygon);
 };
 
 #endif // WEILERATHERTON_H
