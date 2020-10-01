@@ -131,7 +131,7 @@ void WeilerAtherton::setInFlag(QVector<QVector<GeneralPoint>> &mainPolygonList, 
                 inFlag = isPointInsideTailorPolygon(it2->pos);
             }else{
                 inFlag = !inFlag;
-                it2->inFlag = inFlag;
+                it2->inFlag = inFlag?(InFlag::in):(InFlag::out);
             }
         }
     }
@@ -163,7 +163,7 @@ void WeilerAtherton::generateClipArea(QVector<QVector<GeneralPoint>> &mainPolygo
         for(auto mainIt = mainPolygonList.begin(); mainIt != mainPolygonList.end(); mainIt ++){
             auto mainIt2 = mainIt->begin();
             for(; mainIt2 != mainIt->end(); mainIt2 ++){
-                if(!(mainIt2->processed) && mainIt2->pointFlag == PointType::intersectionPoint && mainIt2->inFlag){
+                if(!(mainIt2->processed) && mainIt2->pointFlag == PointType::intersectionPoint && mainIt2->inFlag==InFlag::in){
                     mainIt2->processed = true;
                     break; // 循环直到找到主多边形上一个未处理的入点
                 }
@@ -173,11 +173,11 @@ void WeilerAtherton::generateClipArea(QVector<QVector<GeneralPoint>> &mainPolygo
             }
             while(true){
                 while(true){ // 在主多边形的当前环上循环直到找到下一个出点
-                    clipResult.push_back(mainIt2->pos);
-                    if(!(mainIt2->processed) && mainIt2->pointFlag == PointType::intersectionPoint && !mainIt2->inFlag){
+                    if(!(mainIt2->processed) && mainIt2->pointFlag == PointType::intersectionPoint && mainIt2->inFlag==InFlag::out){
                         mainIt2->processed = true;
                         break;
                     }
+                    clipResult.push_back(mainIt2->pos);
                     mainIt2->processed = true;
                     //clipResult.push_back(mainIt2->pos);
                     mainIt2 ++;
@@ -194,7 +194,7 @@ void WeilerAtherton::generateClipArea(QVector<QVector<GeneralPoint>> &mainPolygo
                     tailorIt ++;
                 }
                 while(true){ // 在裁剪多边形的当前环上循环直到找到下一个入点
-                    if(!(tailorIt->processed) && tailorIt->pointFlag == PointType::intersectionPoint && tailorIt->inFlag){
+                    if(!(tailorIt->processed) && tailorIt->pointFlag == PointType::intersectionPoint && tailorIt->inFlag==InFlag::in){
                         tailorIt->processed = true;
                         break;
                     }

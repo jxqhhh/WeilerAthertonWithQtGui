@@ -14,13 +14,19 @@ struct Index{
     int indexOfEdge;
 };
 
+enum InFlag{
+    uninitialized,
+    in, // 入点
+    out // 出点
+};
+
 struct GeneralPoint{
     PointType pointFlag;
-    Index mainIndex; // 表示点在主多边形的第几个环的第几条边上
-    Index tailorIndex; // 表示点在裁剪多边形的第几个环的第几条边上
+    Index mainIndex; // 表示交叉点在主多边形的第几个环的第几条边上，有pointFlag==PointType::intersectionPoint时才会设置该变量
+    Index tailorIndex; // 表示交叉点在裁剪多边形的第几个环的第几条边上，有pointFlag==PointType::intersectionPoint时才会设置该变量
     QPoint pos;
     bool processed = false;
-    bool inFlag;
+    InFlag inFlag=InFlag::uninitialized; // 只有pointFlag==PointType::intersectionPoint时才会设置该变量
 };
 
 class WeilerAtherton
