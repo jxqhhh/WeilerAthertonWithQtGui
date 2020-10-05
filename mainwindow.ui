@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>641</width>
+    <width>781</width>
     <height>470</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>781</width>
+    <height>470</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>781</width>
+    <height>470</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -17,11 +29,23 @@
    <widget class="QPushButton" name="startMainPolygonOuterRingBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>30</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>开始绘制主多边形外环</string>
@@ -30,11 +54,29 @@
    <widget class="Canvas" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>30</y>
-      <width>391</width>
+      <width>431</width>
       <height>411</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>431</width>
+      <height>411</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>431</width>
+      <height>411</height>
+     </size>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:white;</string>
@@ -43,11 +85,23 @@
    <widget class="QPushButton" name="startMainPolygonInnerRingBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>90</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>开始绘制主多边形内环</string>
@@ -56,11 +110,23 @@
    <widget class="QPushButton" name="startTailorPolygonOuterRingBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>150</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>开始绘制裁剪多边形外环</string>
@@ -69,11 +135,23 @@
    <widget class="QPushButton" name="startTailorPolygonInnerRingBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>210</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>开始绘制裁剪多边形内环</string>
@@ -82,11 +160,23 @@
    <widget class="QPushButton" name="startBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>410</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>裁剪</string>
@@ -95,11 +185,23 @@
    <widget class="QPushButton" name="clearBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>370</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>重置</string>
@@ -108,11 +210,23 @@
    <widget class="QPushButton" name="finishMainPolygonOuterRingBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>60</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>完成绘制主多边形外环</string>
@@ -121,11 +235,23 @@
    <widget class="QPushButton" name="finishMainPolygonInnerRingBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>120</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>完成绘制主多边形内环</string>
@@ -134,11 +260,23 @@
    <widget class="QPushButton" name="finishTailorPolygonOuterRingBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>180</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>完成绘制裁剪多边形外环</string>
@@ -147,11 +285,23 @@
    <widget class="QPushButton" name="finishTailorPolygonInnerRingBtn">
     <property name="geometry">
      <rect>
-      <x>450</x>
+      <x>500</x>
       <y>240</y>
-      <width>171</width>
+      <width>270</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>31</height>
+     </size>
     </property>
     <property name="text">
      <string>完成绘制裁剪多边形内环</string>
@@ -160,19 +310,37 @@
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>500</x>
       <y>280</y>
-      <width>151</width>
-      <height>71</height>
+      <width>270</width>
+      <height>81</height>
      </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>270</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>270</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>6</pointsize>
+     </font>
     </property>
     <property name="html">
      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'.SF NS Text'; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;操作说明：&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;请按逆时针绘制外环，按顺时针绘制内环&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:6pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.SF NS Text';&quot;&gt;操作说明：&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'.SF NS Text';&quot;&gt;请按逆时针绘制外环，按顺时针绘制内环&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
