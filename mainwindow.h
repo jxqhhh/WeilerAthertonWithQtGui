@@ -32,6 +32,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     State getState() const;
+    friend class Canvas;
     bool isPaintingMainPolygonOuterRingFinished() const;
     bool isPaintingTailorPolygonOuterRingFinished() const;
 private slots:

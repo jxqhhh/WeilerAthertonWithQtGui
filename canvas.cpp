@@ -19,36 +19,48 @@ const QColor Canvas::tailorPolygonPtsColor = Qt::green;
 const QColor Canvas::clippingResultPtsColor = Qt::red;
 
 void Canvas::mouseReleaseEvent(QMouseEvent* e){
-    State s = mainwindow->getState();
-    if(s==State::paintingMainPolygonInnerRing){
-        if(newMainPolygonInnerRing){
-            QVector<QPoint> pts;
-            pts.push_back(e->pos());
-            newMainPolygonInnerRing = false;
-            mainPolygonInnerRingsPoints.push_back(pts);
-        }else{
-            auto& pts = *(mainPolygonInnerRingsPoints.end()-1);
-            pts.push_back(e->pos());
+    const State s = mainwindow->getState();
+    if(e->button() & Qt::RightButton){
+        if(s==State::paintingMainPolygonOuterRing){
+            mainwindow->on_finishMainPolygonOuterRingBtn_clicked();
+        }else if(s==State::paintingMainPolygonInnerRing){
+            mainwindow->on_finishMainPolygonInnerRingBtn_clicked();
+        }else if(s==State::paintingTailorPolygonOuterRing){
+            mainwindow->on_finishTailorPolygonOuterRingBtn_clicked();
+        }else if(s==State::paintingTailorPolygonInnerRing){
+            mainwindow->on_finishTailorPolygonInnerRingBtn_clicked();
         }
-        update();
-    }else if(s==State::paintingMainPolygonOuterRing){
-        mainPolygonOuterRingPoints.push_back(e->pos());
-        update();
-    }else if(s==State::paintingTailorPolygonInnerRing){
-        if(newTailorPolygonInnerRing){
-            QVector<QPoint> pts;
-            pts.push_back(e->pos());
-            newTailorPolygonInnerRing = false;
-            tailorPolygonInnerRingsPoints.push_back(pts);
-        }else{
-            auto& pts = *(tailorPolygonInnerRingsPoints.end()-1);
-            pts.push_back(e->pos());
+    }else{
+        if(s==State::paintingMainPolygonInnerRing){
+            if(newMainPolygonInnerRing){
+                QVector<QPoint> pts;
+                pts.push_back(e->pos());
+                newMainPolygonInnerRing = false;
+                mainPolygonInnerRingsPoints.push_back(pts);
+            }else{
+                auto& pts = *(mainPolygonInnerRingsPoints.end()-1);
+                pts.push_back(e->pos());
+            }
+            update();
+        }else if(s==State::paintingMainPolygonOuterRing){
+            mainPolygonOuterRingPoints.push_back(e->pos());
+            update();
+        }else if(s==State::paintingTailorPolygonInnerRing){
+            if(newTailorPolygonInnerRing){
+                QVector<QPoint> pts;
+                pts.push_back(e->pos());
+                newTailorPolygonInnerRing = false;
+                tailorPolygonInnerRingsPoints.push_back(pts);
+            }else{
+                auto& pts = *(tailorPolygonInnerRingsPoints.end()-1);
+                pts.push_back(e->pos());
+            }
+            update();
+        }else if(s==State::paintingTailorPolygonOuterRing){
+            tailorPolygonOuterRingPoints.push_back(e->pos());
+            update();
+        }else if(s==State::notPainting){
         }
-        update();
-    }else if(s==State::paintingTailorPolygonOuterRing){
-        tailorPolygonOuterRingPoints.push_back(e->pos());
-        update();
-    }else if(s==State::notPainting){
     }
 }
 
